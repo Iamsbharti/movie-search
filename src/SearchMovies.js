@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import MovieCard from "./MovieCard";
 function SearchMovies() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const handleSearch = async e => {
     e.preventDefault();
     console.log("submit call url");
-
     const url = `https://api.themoviedb.org/3/search/movie?api_key=6d87b9b87b64ffa1b19ed30b41ee5c82&language=en-US&query=${query}&page=1`;
     try {
       const response = await fetch(url);
@@ -17,7 +17,7 @@ function SearchMovies() {
     }
   };
   return (
-    <div>
+    <>
       <form className="form" onSubmit={handleSearch}>
         <label htmlFor="query" className="label">
           Movie Name
@@ -32,7 +32,8 @@ function SearchMovies() {
         />
         <button className="button">Submit</button>
       </form>
-    </div>
+      <MovieCard movies={movies} />
+    </>
   );
 }
 export default SearchMovies;
