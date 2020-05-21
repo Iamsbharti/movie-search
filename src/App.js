@@ -4,7 +4,7 @@ import SearchMovies from "./SearchMovies";
 
 export default function App() {
   return (
-    <div className="Container">
+    <div className="container">
       <h1 className="title">Movie Search</h1>
       <SearchMovies />
     </div>
