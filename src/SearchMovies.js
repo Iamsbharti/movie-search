@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 function SearchMovies() {
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
   const handleSearch = async e => {
     e.preventDefault();
     console.log("submit call url");
-    const query = "jurassic park";
 
     const url = `https://api.themoviedb.org/3/search/movie?api_key=6d87b9b87b64ffa1b19ed30b41ee5c82&language=en-US&query=${query}&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data.results);
+      setMovies(data.results);
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <div>
@@ -21,6 +27,8 @@ function SearchMovies() {
           className="input"
           name="query"
           placeholder="i.e Jurassic Park"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
         />
         <button className="button">Submit</button>
       </form>
