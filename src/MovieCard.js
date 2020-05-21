@@ -16,7 +16,7 @@ function MovieCard({ movies }) {
             <div className="card--content">
               <h3 className="card--title">{movie.title} </h3>
               <p>
-                <small>RELEASE DATE: {movies.release_date}</small>
+                <small>RELEASE DATE: {movie.release_date}</small>
               </p>
               <p>
                 <small>RATING: {movie.vote_average}</small>
