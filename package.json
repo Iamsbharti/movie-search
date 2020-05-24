@@ -4,8 +4,10 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "https://Iamsbharti.github.io/movie-search-deploy",
   "dependencies": {
     "fetch": "1.1.0",
+    "gh-pages": "^2.2.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-scripts": "3.0.1"
@@ -15,6 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
